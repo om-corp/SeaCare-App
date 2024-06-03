@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { BackButton } from "~/components/Button";
 
 import Access from "~/screens/Access";
 import Cadastro from "~/screens/Cadastro";
@@ -20,7 +21,7 @@ export default function RootStack() {
 			<Stack.Navigator initialRouteName="Access">
 				<Stack.Screen name="Access" component={Access} options={{ headerShown: false }} />
 				<Stack.Screen name="Cadastro" component={Cadastro} />
-				<Stack.Screen name="Login" component={Login} />
+				<Stack.Screen name="Login" component={Login} options={{ headerLeft: () => <BackButton onPress={() => { }} /> }} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

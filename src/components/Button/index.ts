@@ -1,4 +1,6 @@
 import { BackButton } from './BackButton';
 import { Button } from "./Button";
 
-export { Button, BackButton };
+export { BackButton };
+
+export default Button;

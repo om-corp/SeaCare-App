@@ -6,7 +6,7 @@ import { RootStackParamList } from '../../navigation';
 
 /* COMPONENTS */
 import { View } from 'react-native';
-import { Button } from '../../components/Button';
+import Button from '../../components/Button';
 import styles from './styles';
 
 

@@ -2,11 +2,11 @@
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../navigation';
+import { RootStackParamList } from '../../navigation/stack';
 
 /* COMPONENTS */
 import { View } from 'react-native';
-import Button from '../../components/Button';
+import Button from '../../components/button';
 import styles from './styles';
 
 

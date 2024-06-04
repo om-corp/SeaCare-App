@@ -17,11 +17,11 @@ export function Access() {
 
   return (
     <View style={styles.container}>
-      <Button
+      <Button.Filled
         title='Criar conta'
         onPress={() => navigation.push('Cadastro')}
       />
-      <Button
+      <Button.Outline
         title='Entrar'
         onPress={() => navigation.push('Login')}
       />

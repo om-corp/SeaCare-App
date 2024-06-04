@@ -3,9 +3,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import UserProvider from "~/provider/user-provider";
 
 import Access from "~/screens/access";
-import Cadastro from "~/screens/signup";
+import Signup from "~/screens/signup";
 import Login from "~/screens/login";
-import RootBottomTabs from "../bottom-tab";
+import RootBottomTabs from "../navigation-bottom-tabs";
 
 export type RootStackParamList = {
     Access: undefined;
@@ -22,7 +22,7 @@ export default function RootStack() {
             <UserProvider>
                 <Stack.Navigator initialRouteName="Access">
                     <Stack.Screen name="Access" component={Access} options={{ headerShown: false }} />
-                    <Stack.Screen name="Cadastro" component={Cadastro} />
+                    <Stack.Screen name="Cadastro" component={Signup} />
                     <Stack.Screen name="Login" component={Login} />
                     <Stack.Screen name="App" component={RootBottomTabs} />
                 </Stack.Navigator>
@@ -30,4 +30,3 @@ export default function RootStack() {
         </NavigationContainer>
     );
 }
-

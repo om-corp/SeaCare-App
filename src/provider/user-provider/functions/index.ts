@@ -1,6 +1,6 @@
-import { HandleForgotPassword } from "./HandleForgotPassword";
-import { HandleLogin } from "./HandleLogin";
-import { HandleLogout } from "./HandleLogout";
-import { HandleSignup } from "./HandleSignup";
+import HandleForgotPassword from "./handle-forgot-password"
+import HandleLogin from "./handle-login"
+import HandleLogout from "./handle-logout"
+import HandleSignup from "./handle-signup"
 
 export { HandleForgotPassword, HandleLogin, HandleLogout, HandleSignup }

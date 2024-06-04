@@ -1,3 +1,4 @@
-import RootStack from "./stack"
+import RootStack, { RootStackParamList } from "./navigation-stack"
+import RootBottomTabs, { RootTabParamList } from "./navigation-bottom-tabs"
 
-export { RootStack }
+export { RootStack, RootStackParamList, RootBottomTabs, RootTabParamList }

@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "~/utils/firebase";
 
 import { HandleForgotPassword, HandleLogin, HandleLogout, HandleSignup } from "./functions";
-import UserContext from "./UserContext";
+import UserContext from "./user-context";
+import { onAuthStateChanged } from "firebase/auth";
 
 export default function UserProvider({ children }: { children: any }) {
     const [uid, setuid] = useState("")
@@ -12,21 +13,20 @@ export default function UserProvider({ children }: { children: any }) {
     const [cep, setCep] = useState("")
     const [phone, setPhone] = useState("")
 
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            setuid(user.uid)
-        }
-    })
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) setuid(user.uid);
+            else setuid('');
+        })
+
+        return () => unsubscribe();
+    }, [])
 
     return (
         <UserContext.Provider value={{
             uid, name, email, password, cep, phone,
-            setName: (value: string) => setName(value),
-            setEmail: (value: string) => setEmail(value),
-            setPassword: (value: string) => setPassword(value),
-            setCep: (value: string) => setCep(value),
-            setPhone: (value: string) => setPhone(value),
-            HandleForgotPassword, HandleLogin, HandleLogout, HandleSignup
+            setName, setEmail, setPassword, setCep, setPhone,
+            HandleForgotPassword, HandleLogin, HandleLogout, HandleSignup,
         }}>
             {children}
         </UserContext.Provider>

@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import UserProps from "./user-props";
 import { HandleForgotPassword, HandleLogin, HandleLogout, HandleSignup } from "./functions";
 
 const UserContext = createContext({
@@ -8,7 +9,7 @@ const UserContext = createContext({
     password: "", setPassword: (value: string) => { },
     cep: "", setCep: (value: string) => { },
     phone: "", setPhone: (value: string) => { },
-    HandleLogin, HandleSignup, HandleForgotPassword, HandleLogout,
+    HandleForgotPassword, HandleLogin, HandleLogout, HandleSignup,
 });
 
 export default UserContext;

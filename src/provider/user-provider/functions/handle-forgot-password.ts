@@ -2,13 +2,13 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { Alert } from "react-native";
-import { RootStackParamList } from "~/navigation/stack";
+import { RootStackParamList } from "~/navigation/navigation-stack";
 import { auth } from "~/utils/firebase";
 
 
 type NavigationProps = StackNavigationProp<RootStackParamList, 'Login'>
 
-export async function HandleForgotPassword(email: string) {
+export default async function HandleForgotPassword(email: string) {
     const navigation = useNavigation<NavigationProps>()
     
     await sendPasswordResetEmail(auth, email)

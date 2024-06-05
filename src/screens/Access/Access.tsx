@@ -5,9 +5,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/navigation-stack';
 
 /* COMPONENTS */
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Button from '../../components/button';
-import styles from './styles';
 
 
 type AccessScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Access'>;
@@ -28,3 +27,11 @@ export function Access() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      gap: 25,
+      padding: 25,
+  },
+});

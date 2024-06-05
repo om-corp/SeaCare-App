@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
-import { View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput, StyleSheet } from 'react-native'
 import Button from '~/components/button';
 import { UserContext } from '~/provider/user-provider'
-import { styles } from './styles';
 
 export function Signup() {
 
@@ -24,3 +23,11 @@ export function Signup() {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 25,
+    }
+})

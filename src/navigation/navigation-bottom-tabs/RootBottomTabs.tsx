@@ -3,11 +3,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View } from "react-native";
 import { theme } from "~/lib/theme";
 import EventsScreen from "~/screens/app/events-screen";
-
-import Feed from "~/screens/app/feed";
+import Home from "~/screens/app/home";
 
 export type RootTabParamList = {
-    Feed: undefined;
+    Home: undefined;
     Perfil: undefined;
     Config: undefined;
     Eventos: undefined;
@@ -23,8 +22,8 @@ export default function RootBottomTabs() {
             tabBarHideOnKeyboard: true,
             tabBarStyle: { elevation: 0 }
         }}>
-            <Tab.Screen name="Feed" component={Feed} options={{
-                tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="newspaper" color={color} size={size} /> : <Ionicons name="newspaper-outline" color={color} size={size} />
+            <Tab.Screen name="Home" component={Home} options={{
+                tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="home" color={color} size={size} /> : <Ionicons name="home-outline" color={color} size={size} />
             }} />
             <Tab.Screen name="Eventos" component={EventsScreen} options={{
                 tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="calendar" color={color} size={size} /> : <Ionicons name="calendar-outline" color={color} size={size} />

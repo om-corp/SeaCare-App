@@ -12,7 +12,7 @@ export const lightColors: ThemeColors = {
     
     black: '#000000',
     white: '#FFFFFF',
-    accent: '#D9D9D9',
+    accent: '#A3A3A3',
 
     error: '#D01919',
     warning: '#FBBD08',

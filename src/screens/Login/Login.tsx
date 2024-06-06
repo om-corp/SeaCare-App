@@ -4,6 +4,7 @@ import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/aut
 import React, { useContext } from 'react'
 import { View, Text, StyleSheet, TextInput, Alert } from 'react-native'
 import Button from '~/components/button'
+import Form from '~/components/form/Form'
 import { RootStackParamList } from '~/navigation'
 import { UserContext } from '~/provider/user-provider'
 import { auth } from '~/utils/firebase'
@@ -27,15 +28,14 @@ export function Login() {
 
     return (
         <View style={styles.container}>
-            <View>
-                <TextInput placeholder='Email' value={email} onChangeText={(value) => setEmail(value)} />
-                <TextInput placeholder='Senha' value={password} onChangeText={(value) => setPassword(value)} />
+            <Form.Container>
+                <Form.Input label='Email' value={email} onChangeText={(value) => setEmail(value)} placeholder='Email' />
+                <Form.Input label='Senha' value={password} onChangeText={(value) => setPassword(value)} placeholder='Password' />
 
-                <Text onPress={() => navigation.replace('Cadastro')}>Não possui uma conta?</Text>
+                <Form.Link label='Não possui uma conta?' text='Cadastre-se' onPress={() => navigation.replace('Cadastro')} />
 
-                <Button.Filled title='Entrar' onPress={() => handleLogin(email, password)} />
-
-            </View>
+                <Form.Button title='Entrar' onPress={() => handleLogin(email, password)} />
+            </Form.Container>
         </View>
     )
 }

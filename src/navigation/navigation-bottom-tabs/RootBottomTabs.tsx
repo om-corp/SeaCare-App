@@ -1,9 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { View } from "react-native";
-import { theme } from "~/lib/theme";
-import EventsScreen from "~/screens/app/events-screen";
-import Home from "~/screens/app/home";
+import EventsScreen from "~/screens/events-screen";
+import Home from "~/screens/home";
 
 export type RootTabParamList = {
     Home: undefined;

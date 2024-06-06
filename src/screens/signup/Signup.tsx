@@ -3,8 +3,10 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { setDoc, doc } from 'firebase/firestore';
 import { useContext, useEffect, useState } from 'react'
-import { View, Text, TextInput, StyleSheet, Alert } from 'react-native'
+import { View, Text, TextInput, StyleSheet, Alert, Pressable } from 'react-native'
 import Button from '~/components/button';
+import Form from '~/components/form/Form';
+import { colors, fontSize } from '~/lib/theme';
 import { RootStackParamList } from '~/navigation';
 import { UserContext, UserProps } from '~/provider/user-provider';
 import { auth, firestore } from '~/utils/firebase';
@@ -34,16 +36,15 @@ export function Signup() {
 
     return (
         <View style={styles.container}>
-            <View>
-                <TextInput placeholder='Seu nome' value={name} onChangeText={(value) => setName(value)} />
-                <TextInput placeholder='example@domain.com' value={email} onChangeText={(value) => setEmail(value)} />
-                <TextInput placeholder='Uma senha forte' value={password} onChangeText={(value) => setPassword(value)} />
+            <Form.Container>
+                <Form.Input label='Nome' value={name} onChangeText={(value) => setName(value)} placeholder='Name' />
+                <Form.Input label='Email' value={email} onChangeText={(value) => setEmail(value)} placeholder='Email' />
+                <Form.Input label='Senha' value={password} onChangeText={(value) => setPassword(value)} placeholder='Password' />
 
-                <Text onPress={() => navigation.replace('Login')}>Já possui uma conta?</Text>
+                <Form.Link label='Já tem uma conta?' text='Acessar' onPress={() => navigation.replace('Login')} />
 
-                <Button.Filled title='Cadastrar' onPress={() => handleSignup({ cep, email, name, password, phone, })} />
-
-            </View>
+                <Form.Button title='Cadastrar-se' onPress={() => handleSignup({ cep, email, name, password, phone, })} />
+            </Form.Container>
         </View>
     )
 }
@@ -53,5 +54,27 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         padding: 25,
-    }
+    },
+    label: {
+        fontSize: fontSize.lg,
+        fontWeight: '600',
+        marginBottom: 20,
+    },
+    input: {
+        fontSize: fontSize.base,
+        borderColor: colors.accent,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        borderWidth: 1,
+        borderRadius: 6,
+        marginBottom: 20,
+        color: colors.text,
+        backgroundColor: colors.background,
+        // elevation: 5,
+    },
+    link: {
+        color: colors.info,
+        fontWeight: '600',
+        fontSize: fontSize.sm,
+    },
 })

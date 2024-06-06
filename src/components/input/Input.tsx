@@ -19,7 +19,7 @@ export default function Input({ label, placeholder, value, onChangeText, secureT
                     placeholder={placeholder}
                     value={value}
                     onChangeText={onChangeText}
-                    placeholderTextColor={colors.accent}
+                    placeholderTextColor={colors.border}
                     secureTextEntry={secureTextEntry}
                 />
 
@@ -35,8 +35,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     input: {
-        backgroundColor: colors.background,
-        borderColor: colors.accent,
+        borderColor: colors.border,
         borderRadius: 6,
         borderWidth: 1,
         color: colors.text,

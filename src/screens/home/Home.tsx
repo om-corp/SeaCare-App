@@ -1,12 +1,18 @@
-import { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import React, { useEffect, useState } from 'react'
+
+/* COMPONENTS */
+import { Ionicons } from '@expo/vector-icons'
+import { View, StyleSheet } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import { IncidentProps } from './incident-props'
+import LoadingScreen from '~/components/loading-screen'
+
+/* DATA */
 import { collection, getDocs } from 'firebase/firestore'
 import { firestore } from '~/utils/firebase'
-import LoadingScreen from '~/components/loading-screen'
-import { theme } from '~/lib/theme'
-import { Ionicons } from '@expo/vector-icons'
+
+/* STYLE */
+import { colors } from '~/lib/theme'
 
 export default function Home() {
     const [incidents, setIncidents] = useState<IncidentProps[] | null>(null)
@@ -34,7 +40,7 @@ export default function Home() {
         <View style={{ flex: 1 }}>
             <MapView style={StyleSheet.absoluteFill} provider={PROVIDER_GOOGLE}>
                 {incidents.map(({ id, location, name, priority }) => {
-                    const iconColor = priority === 1 ? theme.colors.info : priority === 2 ? theme.colors.warning : priority === 3 ? theme.colors.error : theme.colors.accent
+                    const iconColor = priority === 1 ? colors.info : priority === 2 ? colors.warning : priority === 3 ? colors.error : colors.accent
 
                     return (
                         <Marker key={id} coordinate={{ latitude: location.latitude, longitude: location.longitude }}>

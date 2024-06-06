@@ -1,3 +1,4 @@
+import React from 'react';
 
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native';
@@ -5,9 +6,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/navigation-stack';
 
 /* COMPONENTS */
-import { StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Button from '../../components/button';
-import { colors } from '~/lib/theme';
 
 
 type AccessScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Access'>;

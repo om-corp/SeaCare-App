@@ -1,17 +1,22 @@
-import { useNavigation } from '@react-navigation/native'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth'
-import React, { useContext } from 'react'
-import { View, Text, StyleSheet, TextInput, Alert } from 'react-native'
-import Button from '~/components/button'
-import Form from '~/components/form/Form'
-import { RootStackParamList } from '~/navigation'
-import { UserContext } from '~/provider/user-provider'
-import { auth } from '~/utils/firebase'
+import React, { useContext } from "react"
+
+/* NAVIGATION */
+import { useNavigation } from "@react-navigation/native"
+import { StackNavigationProp } from "@react-navigation/stack"
+import { RootStackParamList } from "~/navigation"
+
+/* COMPONENTS */
+import { Alert, StyleSheet, View } from "react-native"
+import Form from "~/components/form"
+
+/* DATA */
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { UserContext } from "~/provider/user-provider"
+import { auth } from "~/utils/firebase"
 
 type NavigationProps = StackNavigationProp<RootStackParamList, 'Access'>
 
-export function Login() {
+export default function Login() {
     const navigation = useNavigation<NavigationProps>()
 
     const { email, password, setEmail, setPassword, cleanUserInputs } = useContext(UserContext)

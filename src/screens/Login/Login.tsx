@@ -9,7 +9,7 @@ import { RootStackParamList } from "~/navigation"
 import { Alert, Modal, StyleSheet, Text, View } from "react-native"
 import { colors, fontSize } from "~/lib/theme"
 import Form from "~/components/form"
-import ForgotPasswordModal from "./modal/forgot-password"
+import ForgotPasswordModal from "./forgot-password"
 
 /* DATA */
 import { signInWithEmailAndPassword } from "firebase/auth"

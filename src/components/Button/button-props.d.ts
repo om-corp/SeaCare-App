@@ -5,6 +5,7 @@ export default interface ButtonProps {
     color?: string;
     onPress?: PressableProps['onPress'];
     title?: string;
+    children?: any;
 }
 
 export interface ButtonFilledProps extends ButtonProps {

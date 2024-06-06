@@ -1,10 +1,11 @@
 import React from 'react'
 
 /* COMPONENTS */
-import { StyleSheet, Text, TextInput, View } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
-import { InputProps, LinkProps } from './form-props'
-import { ButtonFilledProps } from '../button/button-props'
+import { StyleSheet, Text, View } from 'react-native'
+import { LinkProps } from './form-props'
+import { InputProps } from '../input/input-props'
+import ButtonProps, { ButtonFilledProps } from '../button/button-props'
+import Input from '../input'
 import Button from '../button'
 
 /* STYLE */
@@ -18,24 +19,14 @@ class Form {
     )
 
     Input = ({ label, placeholder, value, onChangeText, secureTextEntry = false, icon }: InputProps) => (
-        <View style={{ gap: 20 }}>
-            <View style={{ flexDirection: 'row', gap: 15, alignItems: 'center' }}>
-                {icon ? <Ionicons name={icon} size={20} color={colors.text} /> : <></>}
-                <Text style={styles.label}>{label}</Text>
-
-            </View>
-            <View>
-                <TextInput
-                    style={styles.input}
-                    placeholder={placeholder}
-                    value={value}
-                    onChangeText={onChangeText}
-                    placeholderTextColor={colors.accent}
-                    secureTextEntry={secureTextEntry}
-                />
-
-            </View>
-        </View>
+        <Input
+            icon={icon}
+            label={label}
+            placeholder={placeholder}
+            value={value}
+            onChangeText={onChangeText}
+            secureTextEntry={secureTextEntry}
+        />
     )
 
     Link = ({ label, text, onPress }: LinkProps) => (
@@ -61,21 +52,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         padding: 25,
-    },
-    label: {
-        color: colors.text,
-        fontSize: fontSize.lg,
-        fontWeight: '600',
-    },
-    input: {
-        backgroundColor: colors.background,
-        borderColor: colors.accent,
-        borderRadius: 6,
-        borderWidth: 1,
-        color: colors.text,
-        fontSize: fontSize.base,
-        paddingHorizontal: 20,
-        paddingVertical: 10,
     },
     link: {
         color: colors.info,

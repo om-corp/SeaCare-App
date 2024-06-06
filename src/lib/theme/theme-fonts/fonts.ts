@@ -1,6 +1,6 @@
 import { ThemeFonts } from "./theme-fonts";
 
-export const myFonts: ThemeFonts = {
+export const fonts: ThemeFonts = {
     sizes: {
         xs: 12,
         sm: 14,

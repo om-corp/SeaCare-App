@@ -37,9 +37,9 @@ export function Signup() {
     return (
         <View style={styles.container}>
             <Form.Container>
-                <Form.Input label='Nome' value={name} onChangeText={(value) => setName(value)} placeholder='Name' />
-                <Form.Input label='Email' value={email} onChangeText={(value) => setEmail(value)} placeholder='Email' />
-                <Form.Input label='Senha' value={password} onChangeText={(value) => setPassword(value)} placeholder='Password' />
+                <Form.Input icon={'person'} label='Nome' value={name} onChangeText={(value) => setName(value)} placeholder='Name' />
+                <Form.Input icon={'mail'} label='Email' value={email} onChangeText={(value) => setEmail(value)} placeholder='Email' />
+                <Form.Input icon={'key'} label='Senha' value={password} onChangeText={(value) => setPassword(value)} placeholder='Password' secureTextEntry />
 
                 <Form.Link label='Já tem uma conta?' text='Acessar' onPress={() => navigation.replace('Login')} />
 

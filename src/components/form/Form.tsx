@@ -4,31 +4,39 @@ import { colors, fontSize } from '~/lib/theme'
 import Button from '../button'
 import { InputProps, LinkProps } from './form-props'
 import { ButtonFilledProps } from '../button/button-props'
+import { Ionicons } from '@expo/vector-icons'
 
 class Form {
     Container = ({ children }: any) => (
-        <View>
+        <View style={{ gap: 20 }}>
             {children}
         </View>
     )
 
-    Input = ({ label, placeholder, value, onChangeText, secureTextEntry = false }: InputProps) => (
-        <View>
-            <Text style={styles.label}>{label}</Text>
-            <TextInput
-                style={styles.input}
-                placeholder={placeholder}
-                value={value}
-                onChangeText={onChangeText}
-                placeholderTextColor={colors.accent}
-                secureTextEntry={secureTextEntry}
-            />
+    Input = ({ label, placeholder, value, onChangeText, secureTextEntry = false, icon }: InputProps) => (
+        <View style={{ gap: 20 }}>
+            <View style={{ flexDirection: 'row', gap: 15, alignItems: 'center' }}>
+                {icon ? <Ionicons name={icon} size={20} color={colors.text} /> : <></>}
+                <Text style={styles.label}>{label}</Text>
+
+            </View>
+            <View>
+                <TextInput
+                    style={styles.input}
+                    placeholder={placeholder}
+                    value={value}
+                    onChangeText={onChangeText}
+                    placeholderTextColor={colors.accent}
+                    secureTextEntry={secureTextEntry}
+                />
+
+            </View>
         </View>
     )
 
     Link = ({ label, text, onPress }: LinkProps) => (
-        <View style={{ flexDirection: 'row', gap: 5, marginBottom: 20 }}>
-            <Text style={{ fontSize: fontSize.sm }}>{label}</Text>
+        <View style={{ flexDirection: 'row', gap: 5 }}>
+            {label ? <Text style={{ fontSize: fontSize.sm }}>{label}</Text> : <></>}
             <Text style={styles.link} onPress={onPress}>{text}</Text>
         </View>
     )
@@ -53,7 +61,6 @@ const styles = StyleSheet.create({
     label: {
         fontSize: fontSize.lg,
         fontWeight: '600',
-        marginBottom: 20,
     },
     input: {
         fontSize: fontSize.base,
@@ -62,7 +69,6 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderWidth: 1,
         borderRadius: 6,
-        marginBottom: 20,
         color: colors.text,
         backgroundColor: colors.background,
         // elevation: 5,

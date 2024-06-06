@@ -1,10 +1,14 @@
 import React from 'react'
+
+/* COMPONENTS */
 import { StyleSheet, Text, TextInput, View } from 'react-native'
-import { colors, fontSize } from '~/lib/theme'
-import Button from '../button'
+import { Ionicons } from '@expo/vector-icons'
 import { InputProps, LinkProps } from './form-props'
 import { ButtonFilledProps } from '../button/button-props'
-import { Ionicons } from '@expo/vector-icons'
+import Button from '../button'
+
+/* STYLE */
+import { colors, fontSize } from '~/lib/theme'
 
 class Form {
     Container = ({ children }: any) => (

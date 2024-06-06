@@ -1,7 +1,11 @@
+import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+/* SCREENS */
 import EventsScreen from "~/screens/events-screen";
 import Home from "~/screens/home";
+
 
 export type RootTabParamList = {
     Home: undefined;

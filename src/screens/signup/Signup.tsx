@@ -1,19 +1,26 @@
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { setDoc, doc } from 'firebase/firestore';
-import { useContext, useEffect, useState } from 'react'
-import { View, Text, TextInput, StyleSheet, Alert, Pressable } from 'react-native'
-import Button from '~/components/button';
-import Form from '~/components/form/Form';
-import { colors, fontSize } from '~/lib/theme';
-import { RootStackParamList } from '~/navigation';
-import { UserContext, UserProps } from '~/provider/user-provider';
-import { auth, firestore } from '~/utils/firebase';
+import React, { useContext } from "react"
+
+/* NAVIGATION */
+import { useNavigation } from "@react-navigation/native"
+import { StackNavigationProp } from "@react-navigation/stack"
+import { RootStackParamList } from "~/navigation"
+
+/* COMPONENTS */
+import { Alert, StyleSheet, View } from "react-native"
+import Form from "~/components/form"
+
+/* DATA */
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { setDoc, doc } from "firebase/firestore"
+import { auth, firestore } from "~/utils/firebase"
+import { UserContext, UserProps } from "~/provider/user-provider"
+
+/* STYLE */
+import { fontSize, colors } from "~/lib/theme"
 
 type NavigationProps = StackNavigationProp<RootStackParamList, 'Access'>
 
-export function Signup() {
+export default function Signup() {
     const navigation = useNavigation<NavigationProps>()
 
     const { cep, email, name, password, phone, setEmail, setName, setPassword, cleanUserInputs } = useContext(UserContext)

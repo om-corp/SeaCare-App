@@ -1,7 +1,7 @@
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import React from 'react'
-import { theme } from '~/lib/theme'
-import { EventProps } from './props'
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
+import { EventProps } from './event-props'
+import { colors, fontSize } from '~/lib/theme'
 
 export default function EventItem({ date, imageUrl, name, summary, volunteers, }: EventProps) {
     return (
@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
         gap: 10,
     },
     image: {
-        backgroundColor: theme.colors.accent,
+        backgroundColor: colors.accent,
         width: 130,
         borderRadius: 2,
     },
     name: {
-        fontSize: theme.fonts.sizes.lg,
+        fontSize: fontSize.lg,
         fontWeight: '600'
     },
     date: {

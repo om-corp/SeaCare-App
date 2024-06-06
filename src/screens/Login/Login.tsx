@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 
 /* NAVIGATION */
 import { useNavigation } from "@react-navigation/native"
@@ -6,8 +6,10 @@ import { StackNavigationProp } from "@react-navigation/stack"
 import { RootStackParamList } from "~/navigation"
 
 /* COMPONENTS */
-import { Alert, StyleSheet, View } from "react-native"
+import { Alert, Modal, StyleSheet, Text, View } from "react-native"
+import { colors, fontSize } from "~/lib/theme"
 import Form from "~/components/form"
+import ForgotPasswordModal from "./modal/forgot-password"
 
 /* DATA */
 import { signInWithEmailAndPassword } from "firebase/auth"
@@ -21,6 +23,8 @@ export default function Login() {
 
     const { email, password, setEmail, setPassword, cleanUserInputs } = useContext(UserContext)
 
+    const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false)
+
     const handleLogin = async (_email: string, _password: string) => {
         await signInWithEmailAndPassword(auth, _email, _password)
             .then(() => navigation.replace('App'))
@@ -32,16 +36,29 @@ export default function Login() {
     }
 
     return (
-        <View style={styles.container}>
-            <Form.Container>
-                <Form.Input icon={'mail'} label='Email' value={email} onChangeText={(value) => setEmail(value)} placeholder='Email' />
-                <Form.Input icon={'key'} label='Senha' value={password} onChangeText={(value) => setPassword(value)} placeholder='Password' secureTextEntry />
+        <>
+            <View style={styles.container}>
+                <Form.Container>
+                    <Form.Input icon={'mail'} label='Email' value={email} onChangeText={(value) => setEmail(value)} placeholder='Email' />
+                    <Form.Input icon={'key'} label='Senha' value={password} onChangeText={(value) => setPassword(value)} placeholder='Password' secureTextEntry />
 
-                <Form.Link label='Não possui uma conta?' text='Cadastre-se' onPress={() => navigation.replace('Cadastro')} />
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ fontSize: fontSize.sm, color: colors.border }} onPress={() => setShowForgotPasswordModal(true)}>
+                            Esqueci minha senha
+                        </Text>
 
-                <Form.Button title='Entrar' onPress={() => handleLogin(email, password)} />
-            </Form.Container>
-        </View>
+                    </View>
+                    <Form.Link label='Não possui uma conta?' text='Cadastre-se' onPress={() => navigation.replace('Cadastro')} />
+
+                    <Form.Button title='Entrar' onPress={() => handleLogin(email, password)} />
+                </Form.Container>
+            </View>
+            <Modal visible={showForgotPasswordModal} transparent>
+                <View style={styles.modal}>
+                    <ForgotPasswordModal setShowModal={setShowForgotPasswordModal} />
+                </View>
+            </Modal>
+        </>
     )
 }
 
@@ -50,5 +67,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         padding: 25,
+    },
+    modal: {
+        backgroundColor: 'rgba(0, 0, 0, .5)',
+        flex: 1,
+        justifyContent: 'center',
     }
 })

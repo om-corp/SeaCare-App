@@ -40,7 +40,7 @@ class Form {
 
     Link = ({ label, text, onPress }: LinkProps) => (
         <View style={{ flexDirection: 'row', gap: 5 }}>
-            {label ? <Text style={{ fontSize: fontSize.sm }}>{label}</Text> : <></>}
+            {label ? <Text style={{ fontSize: fontSize.sm, color: colors.text }}>{label}</Text> : <></>}
             <Text style={styles.link} onPress={onPress}>{text}</Text>
         </View>
     )
@@ -63,19 +63,19 @@ const styles = StyleSheet.create({
         padding: 25,
     },
     label: {
+        color: colors.text,
         fontSize: fontSize.lg,
         fontWeight: '600',
     },
     input: {
-        fontSize: fontSize.base,
+        backgroundColor: colors.background,
         borderColor: colors.accent,
+        borderRadius: 6,
+        borderWidth: 1,
+        color: colors.text,
+        fontSize: fontSize.base,
         paddingHorizontal: 20,
         paddingVertical: 10,
-        borderWidth: 1,
-        borderRadius: 6,
-        color: colors.text,
-        backgroundColor: colors.background,
-        // elevation: 5,
     },
     link: {
         color: colors.info,

@@ -9,6 +9,7 @@ import Profile from "~/screens/profile";
 import { fontSize } from "~/lib/theme";
 import { EventProps } from "~/screens/events-screen/components/event-item/event-props";
 import EventStack from "../navigation-stack/EventStack";
+import HomeStack from "../navigation-stack/HomeStack";
 
 
 export type RootTabParamList = {
@@ -37,7 +38,7 @@ export default function RootBottomTabs() {
                 fontWeight: '600'
             }
         }}>
-            <Tab.Screen name="Home" component={Home} options={{
+            <Tab.Screen name="Home" component={HomeStack} options={{
                 title: 'Início',
                 tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="home" color={color} size={size} /> : <Ionicons name="home-outline" color={color} size={size} />
             }} />

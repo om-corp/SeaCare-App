@@ -7,6 +7,8 @@ import EventsScreen from "~/screens/events-screen";
 import Home from "~/screens/home";
 import Profile from "~/screens/profile";
 import { fontSize } from "~/lib/theme";
+import { EventProps } from "~/screens/events-screen/components/event-item/event-props";
+import EventStack from "../navigation-stack/EventStack";
 
 
 export type RootTabParamList = {
@@ -39,7 +41,7 @@ export default function RootBottomTabs() {
                 title: 'Início',
                 tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="home" color={color} size={size} /> : <Ionicons name="home-outline" color={color} size={size} />
             }} />
-            <Tab.Screen name="Events" component={EventsScreen} options={{
+            <Tab.Screen name="Events" component={EventStack} options={{
                 title: 'Eventos',
                 tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="calendar" color={color} size={size} /> : <Ionicons name="calendar-outline" color={color} size={size} />
             }} />

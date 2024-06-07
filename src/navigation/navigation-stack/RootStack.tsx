@@ -28,7 +28,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 export default function RootStack() {
     return (
         <UserProvider>
-            <Stack.Navigator initialRouteName="App">
+            <Stack.Navigator initialRouteName="Access">
                 <Stack.Screen name="Access" component={Access} options={{ headerShown: false }} />
                 <Stack.Screen name="Cadastro" component={Signup} />
                 <Stack.Screen name="Login" component={Login} />

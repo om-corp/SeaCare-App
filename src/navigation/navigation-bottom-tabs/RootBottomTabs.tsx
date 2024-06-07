@@ -48,7 +48,6 @@ export default function RootBottomTabs() {
             }} />
             <Tab.Screen name="Profile" component={Profile} options={{
                 title: 'Perfil',
-                headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="person" color={color} size={size} /> : <Ionicons name="person-outline" color={color} size={size} />
             }} />
         </Tab.Navigator >

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     backgroundImage: {
         justifyContent: 'center',
         backgroundColor: colors.accent,
-        height: 250,
+        height: 200,
         objectFit: 'fill',
     },
 })

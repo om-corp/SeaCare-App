@@ -40,7 +40,7 @@ export default function Avatar({ username, email, style, phone }: AvatarProps & 
     return (
         <View style={[style]}>
             <Background />
-            <View style={{ alignSelf: 'center', marginTop: 170, marginBottom: 20, }}>
+            <View style={{ alignSelf: 'center', marginTop: 120, marginBottom: 20, }}>
                 <View style={{ alignItems: 'center' }}>
                     <AvatarImage onPress={() => uploadImage()} />
                 </View>

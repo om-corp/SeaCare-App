@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native';
@@ -6,7 +6,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/navigation-stack';
 
 /* COMPONENTS */
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import Button from '../../components/button';
 
 
@@ -17,8 +17,11 @@ export function Access() {
 
   return (
     <View style={styles.container}>
-      <Button.Filled title='Cadastrar-se' onPress={() => navigation.push('Cadastro')} />
-      <Button.Outline title='Entrar' onPress={() => navigation.push('Login')} />
+      <Image source={require('~/assets/seacare/logo-text.png')} style={styles.logo} />
+      <View style={{ gap: 25 }}>
+        <Button.Filled title='Cadastrar-se' onPress={() => navigation.push('Cadastro')} />
+        <Button.Outline title='Entrar' onPress={() => navigation.push('Login')} />
+      </View>
     </View>
   );
 }
@@ -26,9 +29,13 @@ export function Access() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    gap: 25,
     paddingHorizontal: 25,
     paddingVertical: 100,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+  },
+  logo: {
+    width: 150,
+    objectFit: 'contain',
+    alignSelf: 'center',
   },
 });

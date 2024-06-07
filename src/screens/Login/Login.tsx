@@ -15,6 +15,7 @@ import ForgotPasswordModal from "./forgot-password"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { UserContext } from "~/provider/user-provider"
 import { auth } from "~/utils/firebase"
+import handleFirebaseError from "~/lib/error-handler/firebase"
 
 type NavigationProps = StackNavigationProp<RootStackParamList, 'Access'>
 
@@ -29,9 +30,7 @@ export default function Login() {
         await signInWithEmailAndPassword(auth, _email, _password)
             .then(() => navigation.replace('App'))
             .catch(error => {
-                console.log('Erro ao tentar entrar na conta: ' + error);
-                Alert.alert('Ooops', 'Ocorreu um erro ao tentar entrar em sua conta\nFavor validar se seus dados estão corretos');
-                cleanUserInputs()
+                return handleFirebaseError(error)
             })
     }
 

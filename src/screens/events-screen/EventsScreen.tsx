@@ -7,9 +7,17 @@ import { EventProps } from "./components/event-item/event-props";
 import LoadingScreen from "~/components/loading-screen";
 import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "~/utils/firebase";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { EventStackParamList } from "~/navigation/navigation-stack/EventStack";
+
+
+type NavigationProps = StackNavigationProp<EventStackParamList, 'Overview'>
 
 
 export default function EventsScreen() {
+    const navigation = useNavigation<NavigationProps>();
+
     const [eventList, setEventList] = useState<EventProps[] | null>(null);
 
     useEffect(() => {
@@ -42,6 +50,7 @@ export default function EventsScreen() {
                         name={item.name}
                         summary={item.summary}
                         volunteers={item.volunteers}
+                        onPress={() => navigation.navigate('Details', item)}
                     />
                 )}
             />

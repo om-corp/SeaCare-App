@@ -14,7 +14,7 @@ import Signup from "~/screens/signup";
 import Login from "~/screens/login";
 
 /* STYLE */
-import theme from "~/lib/theme";
+import theme, { fontSize } from "~/lib/theme";
 
 export type RootStackParamList = {
     Access: undefined;
@@ -28,7 +28,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 export default function RootStack() {
     return (
         <UserProvider>
-            <Stack.Navigator initialRouteName="Access">
+            <Stack.Navigator initialRouteName="App">
                 <Stack.Screen name="Access" component={Access} options={{ headerShown: false }} />
                 <Stack.Screen name="Cadastro" component={Signup} />
                 <Stack.Screen name="Login" component={Login} />

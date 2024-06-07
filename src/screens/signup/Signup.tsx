@@ -17,13 +17,14 @@ import { UserContext, UserProps } from "~/provider/user-provider"
 
 /* STYLE */
 import { fontSize, colors } from "~/lib/theme"
+import handleFirebaseError from "~/lib/error-handler/firebase"
 
 type NavigationProps = StackNavigationProp<RootStackParamList, 'Access'>
 
 export default function Signup() {
     const navigation = useNavigation<NavigationProps>()
 
-    const { cep, email, name, password, phone, setEmail, setName, setPassword, cleanUserInputs } = useContext(UserContext)
+    const { cep, email, name, password, phone, profilePicture, profileBackground, setEmail, setName, setPassword, cleanUserInputs } = useContext(UserContext)
 
 
     const handleSignup = async (_user: UserProps) => {
@@ -34,8 +35,7 @@ export default function Signup() {
                 navigation.replace('Login')
             })
             .catch(error => {
-                console.log(error);
-                Alert.alert('Erro no envio!', `Ocorreu um erro ao tentar criar sua conta.\n\nTente novamente mais tarde, ou entre em contato com omcorp.helpcenter@gmail.com`);
+                return handleFirebaseError(error)
             })
             .finally(() => cleanUserInputs)
     }
@@ -50,7 +50,7 @@ export default function Signup() {
 
                 <Form.Link label='Já tem uma conta?' text='Acessar' onPress={() => navigation.replace('Login')} />
 
-                <Form.Button title='Cadastrar-se' onPress={() => handleSignup({ cep, email, name, password, phone, })} />
+                <Form.Button title='Cadastrar-se' onPress={() => handleSignup({ cep, email, name, password, phone, profilePicture, profileBackground })} />
             </Form.Container>
         </View>
     )

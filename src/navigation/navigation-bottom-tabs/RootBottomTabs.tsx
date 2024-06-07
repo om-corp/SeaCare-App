@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import EventsScreen from "~/screens/events-screen";
 import Home from "~/screens/home";
 import Profile from "~/screens/profile";
+import { fontSize } from "~/lib/theme";
 
 
 export type RootTabParamList = {
@@ -21,21 +22,33 @@ const Tab = createBottomTabNavigator<RootTabParamList>();
 export default function RootBottomTabs() {
     return (
         <Tab.Navigator screenOptions={{
-            tabBarShowLabel: false,
             tabBarHideOnKeyboard: true,
-            tabBarStyle: { elevation: 0 }
+            tabBarLabelStyle: {
+                fontSize: fontSize.xs,
+                fontWeight: '600',
+            },
+            tabBarStyle: {
+                elevation: 0,
+            },
+            headerTitleStyle: {
+                fontSize: 32,
+                fontWeight: '600'
+            }
         }}>
             <Tab.Screen name="Home" component={Home} options={{
+                title: 'Início',
                 tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="home" color={color} size={size} /> : <Ionicons name="home-outline" color={color} size={size} />
             }} />
             <Tab.Screen name="Events" component={EventsScreen} options={{
+                title: 'Eventos',
                 tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="calendar" color={color} size={size} /> : <Ionicons name="calendar-outline" color={color} size={size} />
             }} />
             <Tab.Screen name="Profile" component={Profile} options={{
                 title: 'Perfil',
+                headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => focused ? <Ionicons name="person" color={color} size={size} /> : <Ionicons name="person-outline" color={color} size={size} />
             }} />
-        </Tab.Navigator>
+        </Tab.Navigator >
     );
 }
 

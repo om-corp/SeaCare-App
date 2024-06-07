@@ -1,6 +1,6 @@
 import { PressableProps } from "react-native";
 
-export default interface ButtonProps {
+export default interface ButtonProps extends PressableProps {
     borderRadius?: number;
     color?: string;
     onPress?: PressableProps['onPress'];

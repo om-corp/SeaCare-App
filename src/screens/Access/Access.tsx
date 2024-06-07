@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native';
@@ -17,7 +17,7 @@ export function Access() {
 
   return (
     <View style={styles.container}>
-      <Image source={require('~/assets/seacare/logo.png')} style={styles.logo} />
+      <Image source={require('~/assets/seacare/logo-text.png')} style={styles.logo} />
       <View style={{ gap: 25 }}>
         <Button.Filled title='Cadastrar-se' onPress={() => navigation.push('Cadastro')} />
         <Button.Outline title='Entrar' onPress={() => navigation.push('Login')} />
@@ -30,13 +30,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 25,
-    paddingBottom: 100,
-    paddingTop: 150,
+    paddingVertical: 100,
     justifyContent: 'space-between',
   },
   logo: {
-    aspectRatio: 1,
-    height: 200,
+    width: 150,
+    objectFit: 'contain',
     alignSelf: 'center',
   },
 });

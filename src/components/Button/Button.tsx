@@ -8,10 +8,7 @@ class Button {
   Filled = ({ children, title, onPress, color = colors.white, backgroundColor = colors.primary, borderRadius = 6 }: ButtonFilledProps) => {
     return (
       <Pressable onPress={onPress} style={[styles.button, { backgroundColor, borderRadius }]}>
-        {children ?
-          <Text style={[styles.text, { color }]}>{children}</Text> :
-          <Text style={[styles.text, { color }]}>{title}</Text>
-        }
+        {children ? children : <Text style={[styles.text, { color }]}>{title}</Text>}
       </Pressable>
     )
   }
@@ -19,10 +16,7 @@ class Button {
   Outline = ({ children, title, onPress, color = colors.primary, borderRadius = 6, borderStyle = 'solid', borderWidth = 2 }: ButtonOutlineProps) => {
     return (
       <Pressable onPress={onPress} style={[styles.button, { borderColor: color, borderStyle, borderRadius, borderWidth }]}>
-        {children ?
-          <Text style={[styles.text, { color }]}>{children}</Text> :
-          <Text style={[styles.text, { color }]}>{title}</Text>
-        }
+        {children ? children : <Text style={[styles.text, { color }]}>{title}</Text>}
       </Pressable>
     )
   }

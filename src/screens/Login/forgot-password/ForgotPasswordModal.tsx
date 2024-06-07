@@ -49,8 +49,8 @@ export default function ForgotPasswordModal({ setShowModal }: { setShowModal: (v
             <Input label='Email' placeholder='Email' value={resetEmail} onChangeText={(value) => setResetEmail(value)} />
 
             <View style={{ gap: 10, marginTop: 20 }}>
-                <Button.Filled onPress={() => handleForgotPassword(resetEmail)}>Redefinir senha</Button.Filled>
-                <Button.Outline borderWidth={0} onPress={() => setShowModal(false)}>Voltar ao login</Button.Outline>
+                <Button.Filled title='Redefinir senha' onPress={() => handleForgotPassword(resetEmail)} />
+                <Button.Outline title='Voltar ao login' borderWidth={0} onPress={() => setShowModal(false)} />
             </View>
 
         </View>

@@ -11,6 +11,7 @@ import Details from '~/screens/events-screen/details';
 import { EventProps } from '~/screens/events-screen/components/event-item/event-props';
 import { Feather } from '@expo/vector-icons';
 import { colors } from '~/lib/theme';
+import GobackHeader from '~/components/header/goback';
 
 
 export type EventStackParamList = {
@@ -26,17 +27,7 @@ export default function EventStack() {
         <Stack.Navigator initialRouteName='Overview' >
             <Stack.Screen name='Overview' component={EventsScreen} options={{ headerShown: false }} />
             <Stack.Screen name='Details' component={Details} options={({ navigation, route }) => ({
-                headerTitle: '',
-                headerTransparent: true,
-                headerLeft: () => (
-                    <Feather
-                        name='arrow-left'
-                        color={colors.background}
-                        size={50}
-                        onPress={() => navigation.goBack()}
-                    />
-                ),
-                headerLeftContainerStyle: { position: 'absolute', left: 10, top: 20},
+                header: () => <GobackHeader navigation={navigation} />
             })} />
         </Stack.Navigator>
     )

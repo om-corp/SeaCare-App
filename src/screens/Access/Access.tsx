@@ -1,3 +1,4 @@
+import React from 'react';
 
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native';
@@ -16,22 +17,18 @@ export function Access() {
 
   return (
     <View style={styles.container}>
-      <Button.Filled
-        title='Criar conta'
-        onPress={() => navigation.push('Cadastro')}
-      />
-      <Button.Outline
-        title='Entrar'
-        onPress={() => navigation.push('Login')}
-      />
+      <Button.Filled title='Cadastrar-se' onPress={() => navigation.push('Cadastro')} />
+      <Button.Outline title='Entrar' onPress={() => navigation.push('Login')} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      gap: 25,
-      padding: 25,
+    flex: 1,
+    gap: 25,
+    paddingHorizontal: 25,
+    paddingVertical: 100,
+    justifyContent: 'flex-end',
   },
 });

@@ -1,15 +1,18 @@
-type ButtonProps = {
-    onPress?: TouchableOpacityProps['onPress'];
-    textColor?: string;
+import { PressableProps } from "react-native";
+
+export default interface ButtonProps {
+    borderRadius?: number;
+    color?: string;
+    onPress?: PressableProps['onPress'];
     title?: string;
-} & TouchableOpacityProps;
+    children?: any;
+}
 
-export type FilledButtonProps = {
+export interface ButtonFilledProps extends ButtonProps {
     backgroundColor?: string;
-} & ButtonProps
+}
 
-export type OutlineButtonProps = {
-    outlineColor?: string;
-} & ButtonProps & FilledButtonProps;
-
-export type TransparentButtonProps = {} & ButtonProps
+export interface ButtonOutlineProps extends ButtonProps {
+    borderStyle?: 'solid' | 'dashed' | 'dotted';
+    borderWidth?: number;
+}

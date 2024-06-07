@@ -1,51 +1,47 @@
-import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
-import { theme } from '~/lib/theme';
-import { FilledButtonProps, OutlineButtonProps, TransparentButtonProps } from './button-props';
+import React from "react"
+import { Pressable, StyleSheet, Text } from "react-native"
+import { colors, fontSize } from "~/lib/theme"
+import { ButtonFilledProps, ButtonOutlineProps } from "./button-props"
 
 class Button {
-  Filled({ backgroundColor = theme.colors.primary, textColor = theme.colors.white, title, onPress }: FilledButtonProps) {
+
+  Filled = ({ children, title, onPress, color = colors.white, backgroundColor = colors.primary, borderRadius = 6 }: ButtonFilledProps) => {
     return (
-      <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: backgroundColor }]}>
-        <Text style={[styles.buttonText, { color: textColor }]}>{title}</Text>
-      </TouchableOpacity>
+      <Pressable onPress={onPress} style={[styles.button, { backgroundColor, borderRadius }]}>
+        {children ?
+          <Text style={[styles.text, { color }]}>{children}</Text> :
+          <Text style={[styles.text, { color }]}>{title}</Text>
+        }
+      </Pressable>
     )
   }
 
-  Outline({ backgroundColor = 'transparent', outlineColor = theme.colors.primary, textColor = outlineColor, title, onPress }: OutlineButtonProps) {
+  Outline = ({ children, title, onPress, color = colors.primary, borderRadius = 6, borderStyle = 'solid', borderWidth = 2 }: ButtonOutlineProps) => {
     return (
-      <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: backgroundColor, borderColor: outlineColor }]}>
-        <Text style={[styles.buttonText, { color: textColor }]}>{title}</Text>
-      </TouchableOpacity>
+      <Pressable onPress={onPress} style={[styles.button, { borderColor: color, borderStyle, borderRadius, borderWidth }]}>
+        {children ?
+          <Text style={[styles.text, { color }]}>{children}</Text> :
+          <Text style={[styles.text, { color }]}>{title}</Text>
+        }
+      </Pressable>
     )
   }
 
-  Transparent({ textColor = theme.colors.primary, title, onPress }: TransparentButtonProps) {
-    return (
-      <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: 'transparent' }]}>
-        <Text style={[styles.buttonText, { color: textColor }]}>{title}</Text>
-      </TouchableOpacity>
-    )
-  }
 }
 
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-    borderRadius: 6,
-    borderStyle: 'solid',
-    borderWidth: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     padding: 16,
+    backgroundColor: 'transparent',
   },
-  buttonText: {
-    fontSize: theme.fonts.sizes.base,
+  text: {
+    fontSize: fontSize.base,
     fontWeight: '600',
     textAlign: 'center',
   },
 });
 
 export default new Button;
-

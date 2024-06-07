@@ -7,12 +7,12 @@ export const lightColors: ThemeColors = {
     background: background,
     card: background,
     text: '#000000',
-    border: background,
+    border: '#A3A3A3',
     notification: '#FF3A2E',
     
     black: '#000000',
     white: '#FFFFFF',
-    accent: '#D9D9D9',
+    accent: '#F3F3F3',
 
     error: '#D01919',
     warning: '#FBBD08',

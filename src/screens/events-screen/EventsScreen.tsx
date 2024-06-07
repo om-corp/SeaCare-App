@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, ScrollView, FlatList, SafeAreaView, ActivityIndicator } from 'react-native'
-import EventItem from './components/event-item'
-import { EventProps } from './components/event-item/props';
-import { theme } from '~/lib/theme';
-import LoadingScreen from '~/components/loading-screen';
-import { collection, getDocs } from 'firebase/firestore';
-import { firestore } from '~/utils/firebase';
+import React, { useState } from "react";
+
+/* COMPONENTS */
+import { SafeAreaView, FlatList, StyleSheet } from "react-native";
+import EventItem from "./components/event-item";
+import { EventProps } from "./components/event-item/event-props";
+import LoadingScreen from "~/components/loading-screen";
+
 
 export default function EventsScreen() {
     const [eventList, setEventList] = useState<EventProps[] | null>(null);

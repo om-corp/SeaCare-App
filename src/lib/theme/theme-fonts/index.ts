@@ -1,3 +1,3 @@
-import { myFonts } from "./fonts";
+import { fonts } from "./fonts";
 
-export { myFonts }
+export { fonts }

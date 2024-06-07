@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, ActivityIndicator, SafeAreaView, StyleSheet } from 'react-native'
-import { theme } from '~/lib/theme'
+import { colors } from '~/lib/theme'
 
 export default function LoadingScreen() {
     return (
         <SafeAreaView style={styles.container}>
-            <ActivityIndicator size={50} color={theme.colors.primary} />
+            <ActivityIndicator size={50} color={colors.primary} />
             <Text>Carregando...</Text>
         </SafeAreaView>
     )

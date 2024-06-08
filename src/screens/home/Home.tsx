@@ -4,12 +4,15 @@ import { SmallButton } from '~/components/button'
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RootTabParamList } from '~/navigation'
+import { HomeStackParamList } from '~/navigation/navigation-stack/HomeStack'
 
 type NavigationProps = StackNavigationProp<RootTabParamList, 'Home'>
+type HomeNavigationProps = StackNavigationProp<HomeStackParamList, 'Overview'>
 
 export default function Home() {
 
     const navigation = useNavigation<NavigationProps>();
+    const homeNavigation = useNavigation<HomeNavigationProps>();
 
 
     return (
@@ -20,7 +23,7 @@ export default function Home() {
                 <SmallButton title='Concluídos' onPress={() => Alert.alert('WIP', 'Área em desenvolvimento.')} source={require('~/assets/home/participacao.png')} />
                 <SmallButton title='Loja' onPress={() => Alert.alert('WIP', 'Área em desenvolvimento.')} source={require('~/assets/home/etiqueta-de-preco.png')} />
                 <SmallButton title='Registrar Incidente' onPress={() => Alert.alert('WIP', 'Área em desenvolvimento.')} source={require('~/assets/home/camera.png')} />
-                <SmallButton title='Incidentes' onPress={() => Alert.alert('WIP', 'Área em desenvolvimento.')} source={require('~/assets/home/mapa.png')} />
+                <SmallButton title='Incidentes' onPress={() => homeNavigation.navigate('Incidents')} source={require('~/assets/home/mapa.png')} />
                 <SmallButton title='Perfil' onPress={() => navigation.navigate('Profile')} source={require('~/assets/home/pessoa.png')} />
                 {/* <View style={styles.button}>
                     <Image style={styles.icon} source={require('~/assets/home/calendario.png')} />

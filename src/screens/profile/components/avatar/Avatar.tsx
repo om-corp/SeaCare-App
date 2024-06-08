@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Alert, Image, StyleSheet, Text, TouchableOpacity, View, ViewProps } from 'react-native'
+import { ActivityIndicator, Alert, Image, StyleSheet, Text, TouchableOpacity, View, ViewProps } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import { colors, fontSize } from '~/lib/theme'
 import * as ImagePicker from 'expo-image-picker'
@@ -40,12 +40,12 @@ export default function Avatar({ username, email, style, phone }: AvatarProps & 
     return (
         <View style={[style]}>
             <Background />
-            <View style={{ alignSelf: 'center', marginTop: 170, marginBottom: 20, }}>
+            <View style={{ alignSelf: 'center', marginTop: 120, marginBottom: 20, }}>
                 <View style={{ alignItems: 'center' }}>
                     <AvatarImage onPress={() => uploadImage()} />
                 </View>
-                {username ? <Text style={styles.title}>{username}</Text> : <></>}
-                {email ? <Text style={styles.text} numberOfLines={1}>{email}</Text> : <></>}
+                {username ? <Text style={styles.title}>{username}</Text> : <ActivityIndicator size={14} color={colors.text} />}
+                {email ? <Text style={styles.text} numberOfLines={1}>{email}</Text> : <ActivityIndicator size={14} color={colors.text} />}
                 {phone ? <Text style={styles.text} numberOfLines={1}>{phone}</Text> : <></>}
             </View>
         </View>

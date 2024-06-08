@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Image, TouchableOpacityProps } from 'react-native'
 import { EventProps } from './event-props'
 import { colors, fontSize } from '~/lib/theme'
 
-export default function EventItem({ date, imageUrl, name, summary, volunteers, }: EventProps) {
+export default function EventItem({ date, imageUrl, name, summary, volunteers, onPress }: EventProps & TouchableOpacityProps) {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
             <Image source={{ uri: imageUrl }} style={styles.image} />
             <View>
                 <Text style={styles.name}>{name}</Text>

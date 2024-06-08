@@ -5,10 +5,10 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 import { colors } from '~/lib/theme'
 import { collection, getDocs } from 'firebase/firestore'
 import { firestore } from '~/utils/firebase'
-import { IncidentProps } from '../incident-props'
+import { IncidentProps } from './incident-props'
 import LoadingScreen from '~/components/loading-screen'
 
-export default function IncidentesMap() {
+export default function IncidentsMap() {
     const [incidents, setIncidents] = useState<IncidentProps[] | null>(null)
 
     useEffect(() => {

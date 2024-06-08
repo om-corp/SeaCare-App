@@ -1,4 +1,8 @@
-# Sea Care App
+<div align="center">
+  <h1>Sea Care App</h1>
+  <img src="./assets/icon.png" height=150>
+</div>
+
 
 ## Integrantes
 |    RM    |            Nome             |

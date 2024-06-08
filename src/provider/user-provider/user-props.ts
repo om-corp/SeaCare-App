@@ -4,6 +4,4 @@ export default interface UserProps {
     password: string;
     cep: string;
     phone: string;
-    profilePicture: {uri: string};
-    profileBackground: string;
 }

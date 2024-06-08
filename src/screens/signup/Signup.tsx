@@ -24,7 +24,7 @@ type NavigationProps = StackNavigationProp<RootStackParamList, 'Access'>
 export default function Signup() {
     const navigation = useNavigation<NavigationProps>()
 
-    const { cep, email, name, password, phone, profilePicture, profileBackground, setEmail, setName, setPassword, cleanUserInputs } = useContext(UserContext)
+    const { cep, email, name, password, phone, setEmail, setName, setPassword, cleanUserInputs } = useContext(UserContext)
 
 
     const handleSignup = async (_user: UserProps) => {
@@ -50,7 +50,7 @@ export default function Signup() {
 
                 <Form.Link label='Já tem uma conta?' text='Acessar' onPress={() => navigation.replace('Login')} />
 
-                <Form.Button title='Cadastrar-se' onPress={() => handleSignup({ cep, email, name, password, phone, profilePicture, profileBackground })} />
+                <Form.Button title='Cadastrar-se' onPress={() => handleSignup({ cep, email, name, password, phone })} />
             </Form.Container>
         </View>
     )
